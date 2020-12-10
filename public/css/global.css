@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: 0;
+  }
+  body{
+    background: #312E38;
+    color: #fff;
+    height: 100%;
+    width: 100%;
+    -webkit-font-smoothing: antialiased;
+  }
+  body, input, button{
+    font-family: 'Roboto Slab', serif;
+    font-size: 16px;
+  }
+  h1,h2,h3,h4,h5,h6, strong{
+    font-weight: 500;
+  }
+  button{
+    cursor: pointer;
+  }
+
+ .content{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+     width: 50%;
+
+}
+
+ .form{
+  background: #FAFAFA;
+  margin-top: 40px;
+  border-radius: 5px;
+  padding: 64px;
+}
+
+.dz-message{
+    padding: 64px;
+    font-weight: bolder;
+    color: #3e3e3e;
+}
+
+.dropzone { border: 2px dashed #0087F7; border-radius: 5px; background: white; cursor: pointer; }
+.dropzone .dz-message { font-weight: 400; }
+.dropzone .dz-message .note { font-size: 0.8em; font-weight: 200; display: block; margin-top: 1.4rem; }
+
