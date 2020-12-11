@@ -49,3 +49,7 @@
 .dropzone .dz-message { font-weight: 400; }
 .dropzone .dz-message .note { font-size: 0.8em; font-weight: 200; display: block; margin-top: 1.4rem; }
 
+svg {
+    background: #008000;
+    border-radius: 30px;
+}

@@ -5,28 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PHP - Challenge</title>
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/basic.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/global.css">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/basic.min.css"
-    integrity="sha512-MeagJSJBgWB9n+Sggsr/vKMRFJWs+OUphiDV7TJiYu+TNQD9RtVJaPDYP8hA/PAjwRnkdvU+NsTncYTKlltgiw==" crossorigin="anonymous" />
 </head>
 <body>
-
     <div class="content">
         <div class="form">
-        <form action="{{route('uploads')}}" method="POST" enctype="multipart/form-data" class="dropzone dz-clickable">
+        <form action="{{route('uploads')}}" method="POST" enctype="multipart/form-data" class="dropzone dz-clickable" id="my-dropzone">
             @csrf
                 <div class="dz-message">
-                    Drop the XML here \o/
+                    Suas XMLS aqui
                 </div>
             </form>
         </div>
+        <div class="mt-3">
+            <table class="table table-sm">
+                <thead>
+                  <tr>
+                    <th scope="col">Nome do Arquivo</th>
+                    <th class="text-center" scope="col">Ação</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    @foreach ($files as $file)
+                        <tr>
+                            <td>{{ $file->getFilename() }}</td>
+                            <td class="text-center">
+                                <button type="button" onclick="startProcess('{{$file->getFilename()}}');" class="btn btn-success btn-sm">Processar</button>
+                            </td>
+                        </tr>
+                    @endforeach
+              </table>
+        </div>
+
     </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.7.2/min/dropzone.min.js"></script>
+@include('Home.scripts')
 <script>
 
+    function startProcess(filename){
+
+        const token = '{{ csrf_token() }}';
+
+        $.ajax({
+            method: 'POST',
+            url: "{{ route('ajax.process.xml') }}",
+            data: {_token: token, filename},
+            success: function(data){
+                console.log(data);
+            }
+        });
+
+    }
+
 </script>
+
 </body>
 </html>

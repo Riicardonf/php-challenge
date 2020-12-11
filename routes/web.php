@@ -15,4 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@index')->name('index');
 
-Route::post('/files', 'UploadController@upload')->name('uploads');
+Route::post('/files', 'XmlsController@upload')->name('uploads');
+
+
+Route::post('/processxml', 'XmlsController@processXml')->name('ajax.process.xml');
