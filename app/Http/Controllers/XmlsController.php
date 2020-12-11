@@ -27,7 +27,6 @@ class XmlsController extends Controller
 
         }
 
-
     }
 
     public function processXml(Request $request){
