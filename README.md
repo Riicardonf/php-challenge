@@ -3,7 +3,7 @@
  - Foram usadas duas docker images: [laradock](https://laradock.io/) , [postgres](https://hub.docker.com/_/postgres).
  
  ### Rodando à aplicação:
-    - Siga as instruções para instalar o [laradock](https://laradock.io/) e como rodar o projeto dentro dele;
+    - Siga as instruções para instalar o laradock e como rodar o projeto dentro da imagem;
     - Crie a sua imagem do POSTGRES;
     - Configure a conexão com o banco dentro do .env da aplicação;
         DB_CONNECTION=pgsql
